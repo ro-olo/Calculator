@@ -1,0 +1,100 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    background-color: black;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 600px;
+    border: 3px solid rgb(255, 255, 255);
+}
+
+.display {
+    background-color: black;
+    color: whitesmoke;
+    width: 100%;
+    height: 130px;
+    border: 2px solid white;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 30px;
+    
+}
+
+.btnsContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.left, .operations, .upper, .numbers {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.operations {
+    width: 25%;
+}
+
+.upper {
+    height: 20%;
+    flex-direction: row;
+}
+
+button {
+    width: 100px;
+    height: 100px;
+    background-color:rgb(56, 54, 62);
+    border: 2px solid white;
+    color: white;
+    font-size: 30px;
+}
+
+button:hover {
+    background-color: rgb(99, 94, 104);
+}
+
+.number {
+    width: 100px;
+}
+
+.operationTop {
+    background-color: rgb(179, 183, 188);
+}
+
+.operationTop:hover {
+    background-color: rgb(210, 212, 215);
+}
+
+.operation {
+    background-color: rgb(120, 77, 214);
+}
+
+.operation:hover {
+    background-color: rgb(151, 120, 219);
+}
+.row {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+#zero {
+    width: 200px;
+}
