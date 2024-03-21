@@ -19,14 +19,14 @@ body {
 .display {
     background-color: black;
     color: whitesmoke;
-    width: 100%;
+    width: 380px;
     height: 130px;
-    border: 2px solid white;
+    border: 2px solid black;
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    font-size: 30px;
-    
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40px;
 }
 
 .btnsContainer {
@@ -69,6 +69,10 @@ button:hover {
     background-color: rgb(99, 94, 104);
 }
 
+button:active {
+    background-color: rgb(45, 44, 46);
+}
+
 .number {
     width: 100px;
 }
@@ -81,6 +85,10 @@ button:hover {
     background-color: rgb(210, 212, 215);
 }
 
+.operationTop:active {
+    background-color: rgb(171, 171, 171);
+}
+
 .operation {
     background-color: rgb(120, 77, 214);
 }
@@ -88,6 +96,11 @@ button:hover {
 .operation:hover {
     background-color: rgb(151, 120, 219);
 }
+
+.operation:active {
+    background-color: rgb(113, 92, 158);
+}
+
 .row {
     width: 100%;
     height: 100%;
@@ -98,3 +111,4 @@ button:hover {
 #zero {
     width: 200px;
 }
+

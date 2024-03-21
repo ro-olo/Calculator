@@ -10,6 +10,15 @@ let operation = '';
 buttons.forEach(button => {
     button.addEventListener('click', () => {
         let btnText = button.innerText;
+        if (display.textContent.length > 16 && button.classList.contains('number')) {
+            return;
+        }
+
+        if (button.classList.contains('number')) {
+            if (btnText === '.' && secondNumber.includes('.')) {
+                return;
+            }
+        }
 
         if (btnText === 'C') {
             clear();
@@ -17,9 +26,24 @@ buttons.forEach(button => {
             return;
         }
 
+        if (btnText === '+/-') {
+            if (secondNumber !== '') {
+                secondNumber = (parseFloat(secondNumber) * -1).toString();
+                updateDisplay();
+            }
+            return;
+        }
+
+        if (btnText === '%') {
+            if (secondNumber !== '') {
+                secondNumber = (parseFloat(secondNumber) / 100 * secondNumber).toString();
+                btnText = '';
+            }
+        }
+
+
         if (btnText === '=') {
             operate();
-            /*fare la funzione operate*/
             updateDisplay();
             return;
         }
@@ -40,7 +64,20 @@ buttons.forEach(button => {
 })
 
 function updateDisplay() {
-    display.innerText = secondNumber;
+    displayText = '';
+    if (operation !== '') {
+        displayText = firstNumber + '' + operation;
+    } else {
+        displayText = firstNumber;
+    }
+    if (secondNumber !== '') {
+        displayText += '' + secondNumber;
+    }
+    
+    if (display.length > 16) {
+        displayText = displayText.substring(0, 16);
+    }
+    display.innerText = displayText;
 }
 
 function clear() {
@@ -57,6 +94,7 @@ function operate() {
     if (isNaN(first) || isNaN(second))
     return;
 
+    
     switch(operation) {
         case '+':
             result = first + second;
@@ -68,12 +106,24 @@ function operate() {
             result = first * second;
             break;
         case '/':
-            result = first / second;
+            if ((second == 0) && (operation === '/')) {
+                result = 'Error';
+            } else {
+                result = first / second;
+            }
             break;
         default:
             return;
     }
-    secondNumber = result.toString();
+
+    if (Number.isInteger(result)) {
+        secondNumber = result.toString();
+    } else {
+        secondNumber = result.toFixed(2);
+    }
+    
+    firstNumber = '';
+    operation = '';
 }
 })
 
